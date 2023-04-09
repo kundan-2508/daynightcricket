@@ -9,6 +9,8 @@ import { PlayersComponent } from './players/players.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SinglePlayerComponent } from './single-player/single-player.component';
+import { LoaderComponent } from './loader/loader.component';
+import { RankingComponent } from './ranking/ranking.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { SinglePlayerComponent } from './single-player/single-player.component';
     NavbarComponent,
     FooterComponent,
     PlayersComponent,
-    SinglePlayerComponent
+    SinglePlayerComponent,
+    LoaderComponent,
+    RankingComponent
   ],
   imports: [
     BrowserModule,

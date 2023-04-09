@@ -12,6 +12,7 @@ export class SinglePlayerComponent implements OnInit{
   playerInfo: any;
   battingSummary: any;
   bowlingSummary: any;
+  isLoader: boolean = false;
   constructor(private route: ActivatedRoute,
     private playersService: PlayersService) {
     

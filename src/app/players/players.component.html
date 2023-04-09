@@ -1,26 +1,31 @@
-<div class="container">
-    <div class="row margin-2">
-        <div class="col-md-4 offset-md-4">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Search Players" aria-label="Search Players" aria-describedby="button-addon2" [(ngModel)] = "searchKeyword">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="searchPlayers()">Search</button>
+<div *ngIf = "isLoading">
+    <app-loader></app-loader>
+</div>
+<div>
+    <div class="container">
+        <div class="row margin-2">
+            <div class="col-md-4 offset-md-4">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search Players" aria-label="Search Players" aria-describedby="button-addon2" [(ngModel)] = "searchKeyword">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="searchPlayers()">Search</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="container">
-    <div class="row margin-2">
-        <div class="col-md-4 offset-md-4 d-flex justify-content-center">
-            <h4 class="highlight-bg">Trending Players</h4>
+    <div class="container" *ngIf = "!isLoading">
+        <div class="row margin-2">
+            <div class="col-md-4 offset-md-4 d-flex justify-content-center">
+                <h4 class="highlight-bg">Trending Players</h4>
+            </div>
         </div>
-    </div>
-    <div class="row row-cols-1 row-cols-md-5 g-4">
-        <div class="col" *ngFor="let player of playerList">
-            <div class="card cursor-pointer" [routerLink]="['/player', player.id]">
-                <img src="http://i.cricketcb.com/stats/img/faceImages/587.jpg" class="card-img-top">
-                <div class="card-body">
-                <h5 class="card-title d-flex justify-content-center">{{player.name}}</h5>
-                <h6 class="card-text d-flex justify-content-center blue-text">{{player.teamName}}</h6>
+        <div class="row row-cols-1 row-cols-md-5 g-4">
+            <div class="col" *ngFor="let player of playerList">
+                <div class="card cursor-pointer" [routerLink]="['/player', player.id]">
+                    <img src="http://i.cricketcb.com/stats/img/faceImages/587.jpg" class="card-img-top">
+                    <div class="card-body">
+                    <h5 class="card-title d-flex justify-content-center">{{player.name}}</h5>
+                    <h6 class="card-text d-flex justify-content-center blue-text">{{player.teamName}}</h6>
+                    </div>
                 </div>
             </div>
         </div>

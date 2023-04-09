@@ -1,0 +1,104 @@
+<div class="container">
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <button class="nav-link active" id="nav-batting-tab" data-bs-toggle="tab" data-bs-target="#nav-batting" type="button" role="tab" aria-controls="nav-batting" aria-selected="true" (click)="changeCategoryType('batsmen')">Batting</button>
+          <button class="nav-link" id="nav-bowling-tab" data-bs-toggle="tab" data-bs-target="#nav-bowling" type="button" role="tab" aria-controls="nav-bowling" aria-selected="false" (click)="changeCategoryType('bowlers')">Bowling</button>
+          <button class="nav-link" id="nav-allrounder-tab" data-bs-toggle="tab" data-bs-target="#nav-allrounder" type="button" role="tab" aria-controls="nav-allrounder" aria-selected="false" (click)="changeCategoryType('allrounders')">All Rounder</button>
+          <button class="nav-link" id="nav-teams-tab" data-bs-toggle="tab" data-bs-target="#nav-teams" type="button" role="tab" aria-controls="nav-teams" aria-selected="false" (click)="changeCategoryType('teams')">Teams</button>
+        </div>
+    </nav>
+    <div class="tab-content margin-top-2" id="nav-tabContent">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="pills-test-tab" data-bs-toggle="pill" data-bs-target="#pills-test" type="button" role="tab" aria-controls="pills-test" aria-selected="true" (click)="changeFormatType('test')">TEST</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-odi-tab" data-bs-toggle="pill" data-bs-target="#pills-odi" type="button" role="tab" aria-controls="pills-odi" aria-selected="false" (click)="changeFormatType('odi')">ODI</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-t20-tab" data-bs-toggle="pill" data-bs-target="#pills-t20" type="button" role="tab" aria-controls="pills-t20" aria-selected="false" (click)="changeFormatType('t20')">T20</button>
+            </li>
+        </ul>
+        <div class="tab-pane fade show active" id="nav-batting" role="tabpanel" aria-labelledby="nav-batting-tab">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Rank</th>
+                    <th scope="col">Player</th>
+                    <th scope="col">Country</th>
+                    <th scope="col">Rating</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor = " let stat of batStats">
+                    <td>{{stat.rank}}</td>
+                    <td>{{stat.name}}</td>
+                    <td>{{stat.country}}</td>
+                    <td>{{stat.rating}}</td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="nav-bowling" role="tabpanel" aria-labelledby="nav-bowling-tab">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Rank</th>
+                    <th scope="col">Player</th>
+                    <th scope="col">Country</th>
+                    <th scope="col">Rating</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor = " let stat of bowlStats">
+                    <td>{{stat.rank}}</td>
+                    <td>{{stat.name}}</td>
+                    <td>{{stat.country}}</td>
+                    <td>{{stat.rating}}</td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="nav-allrounder" role="tabpanel" aria-labelledby="nav-allrounder-tab">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Rank</th>
+                    <th scope="col">Player</th>
+                    <th scope="col">Country</th>
+                    <th scope="col">Rating</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor = " let stat of allRStats">
+                    <td>{{stat.rank}}</td>
+                    <td>{{stat.name}}</td>
+                    <td>{{stat.country}}</td>
+                    <td>{{stat.rating}}</td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="nav-teams" role="tabpanel" aria-labelledby="nav-teams-tab">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Rank</th>
+                    <th scope="col">Team</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Points</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor = " let stat of teamStats">
+                    <td>{{stat.rank}}</td>
+                    <td>{{stat.name}}</td>
+                    <td>{{stat.rating}}</td>
+                    <td>{{stat.points}}</td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
