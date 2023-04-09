@@ -1,0 +1,100 @@
+<div class="container margin-2" *ngIf="playerInfo">
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-lg-4">
+            <img src="{{playerInfo.image}}" class="card-img-top margin-bottom-4">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <h5 class="highlight-bg">Personal Information</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <h6>Born  </h6>
+                </div>
+                <div class="col-md-8 col-sm-8 col-lg-8">
+                    <h6 class="blue-text">{{playerInfo.DoB}}</h6>
+                </div>
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <h6>Birth Place  </h6>
+                </div>
+                <div class="col-md-8 col-sm-8 col-lg-8">
+                    <h6 class="blue-text">{{playerInfo.birthPlace}}</h6>
+                </div>
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <h6>Role  </h6>
+                </div>
+                <div class="col-md-8 col-sm-8 col-lg-8">
+                    <h6 class="blue-text">{{playerInfo.role}}</h6>
+                </div>
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <h6>Batting Style  </h6>
+                </div>
+                <div class="col-md-8 col-sm-8 col-lg-8">
+                    <h6 class="blue-text">{{playerInfo.bat}}</h6>
+                </div>
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <h6>Bowling Style  </h6>
+                </div>
+                <div class="col-md-8 col-sm-8 col-lg-8">
+                    <h6 class="blue-text">{{playerInfo.bowl}}</h6>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8 col-sm-8 col-lg-8">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <h5 class="highlight-bg">Batting Career Summary</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <table class="table table-hover" *ngIf="battingSummary">
+                        <thead>
+                          <tr>
+                            <th *ngFor="let header of battingSummary.headers">{{ header === 'ROWHEADER' ? "": header }}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let row of battingSummary.values">
+                            <th>{{ row.values[0] }}</th>
+                            <td *ngFor="let value of row.values.slice(1)">{{ value }}</td>
+                          </tr>
+                        </tbody>
+                      </table>                      
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <h5 class="highlight-bg">Bowling Career Summary</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <table class="table table-hover" *ngIf="bowlingSummary">
+                        <thead>
+                          <tr>
+                            <th *ngFor="let header of bowlingSummary.headers">{{ header === 'ROWHEADER' ? "": header }}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let row of bowlingSummary.values">
+                            <th>{{ row.values[0] }}</th>
+                            <td *ngFor="let value of row.values.slice(1)">{{ value }}</td>
+                          </tr>
+                        </tbody>
+                      </table>                      
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <h5 class="highlight-bg">Profile</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12" [innerHTML]="playerInfo.bio">               
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
